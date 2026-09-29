@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "AI-TUBES1"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.110", "uvicorn>=0.27"]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "httpx>=0.27"]
+
+[project.scripts]
+truck-search = "app.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src/backend"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src/backend"]
+testpaths = ["tests"]
