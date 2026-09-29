@@ -3,7 +3,7 @@ from .models import Problem, State, oriented_dimensions
 # cek boundaries, overlap, kapasitas truck, fragile packages
 # dipakai saat generate kandidat, akan di validasi dulu baru masuk ke search algorithm
 # kalau invalid -> not yield
-def state_resolution(problem: Problem, state: State) -> dict:
+def validate_state(problem: Problem, state: State) -> dict:
     packages = {package.id: package for package in problem.packages}
     trucks = {truck.id: truck for truck in problem.trucks}
 
@@ -87,7 +87,7 @@ def state_resolution(problem: Problem, state: State) -> dict:
 
 def is_valid(problem: Problem, state: State) -> bool:
     try:
-        state_resolution(problem, state)
+        validate_state(problem, state)
         return True
     except ValueError:
         return False

@@ -2,7 +2,7 @@ import json
 from dataclasses import asdict
 from pathlib import Path
 from .models import Problem, State
-from .validation import state_resolution
+from .validation import validate_state
 
 # object -> dictionary yang bisa di tulis JSON
 def state_dict(state: State) -> dict:
@@ -15,7 +15,7 @@ def state_dict(state: State) -> dict:
 
 # buat pemetaan paket di truk
 def occupancy_dict(problem: Problem, state: State) -> dict:
-    grids = state_resolution(problem, state)["grids"]
+    grids = validate_state(problem, state)["grids"]
     occupancy = {}
 
     for truck in problem.trucks:

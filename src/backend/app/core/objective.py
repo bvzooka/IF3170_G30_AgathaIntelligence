@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from .models import Problem, State
-from .validation import state_resolution
+from .validation import validate_state
 
 
 @dataclass(frozen=True)
@@ -18,7 +18,7 @@ class ObjectiveConfig:
 # kalau mode == value -> package.value
 # kalau mode == eta_weighted -> ETA diperhitungkan
 def score(problem: Problem, state: State, config: ObjectiveConfig = ObjectiveConfig(),) -> float:
-    state_resolution(problem, state)
+    validate_state(problem, state)
     return sum(package.value * (1 + config.eta_bonus / (package.eta + 1))
         if config.mode == "eta_weighted"
         else package.value
