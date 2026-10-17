@@ -1,6 +1,7 @@
 from collections.abc import Iterator
 from .models import Orientation, Placement, Position, Problem, State
 from .validation import is_valid
+from random import Random
 
 # bisa : 
 # - pindahin 1 package ke suatu koordinat di truk
@@ -71,3 +72,49 @@ def neighbors(problem: Problem, state: State) -> Iterator[State]:
                     for x in range(truck.dimensions.w):
                         candidate = move(problem, state, first, truck.id, Position(x, y, z))
                         if candidate is not None: yield candidate
+
+
+def random_neighbor(problem: Problem, state: State, rng: Random, max_attempt: int = 100) -> State | None:
+    if max_attempt <= 0:
+        raise ValueError("max_attempt harus lebih dari 0")
+
+    package_ids = list(state.placements.keys())
+    if not package_ids:
+        return None
+    if not problem.trucks:
+        return None
+
+    for _ in range(max_attempt):
+        operation = rng.choice(("swap", "move", "rotate"))
+        if operation == "swap":
+            if len(package_ids) < 2:
+                continue
+            first, second = rng.sample(package_ids, 2)
+            candidate = swap(problem, state, first, second)
+            if candidate is not None: 
+                return candidate
+
+        elif operation == "rotate":
+            package_id = rng.choice(package_ids)
+            if state.placements[package_id] is None:
+                continue
+            axis = rng.choice(("x", "y", "z"))
+            candidate = rotate(problem, state, package_id, axis)
+            if candidate is not None:
+                return candidate
+
+        else:
+            package_id = rng.choice(package_ids)
+            current = state.placements[package_id]
+            if(current is None and rng.random() < 0.20):
+                candidate = move(problem, state, package_id, None)
+                if candidate is not None:
+                    return candidate
+                continue
+            truck = rng.choice(problem.trucks)
+            position = Position(x=rng.randrange(truck.dimensions.w), y=rng.randrange(truck.dimensions.l), z=rng.randrange(truck.dimensions.h))
+            candidate = move(problem, state, package_id, truck.id, position)
+            if candidate is not None:
+                return candidate
+
+    return None
