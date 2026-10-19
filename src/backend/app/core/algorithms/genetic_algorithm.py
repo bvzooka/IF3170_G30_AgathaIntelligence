@@ -123,7 +123,7 @@ def score_all_individuals(problem, population, objective):
     return scores
 
 def search(problem: Problem, initial: State, *, seed: int | None = None, objective: ObjectiveConfig = ObjectiveConfig(), population_size: int = 50, 
-           max_iterations: int = 100, tournament_size: int = 3, mutation_rate: float = 0.3, crossover_rate: float = 0.8, **params) -> SearchResult:
+           max_iterations: int = 100, tournament_size: int = 2, mutation_rate: float = 0.7, crossover_rate: float = 0.8, **params) -> SearchResult:
     if population_size < 1:
         raise ValueError("population_size harus minimal 1")
     if max_iterations < 0:
