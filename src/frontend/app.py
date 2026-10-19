@@ -492,6 +492,7 @@ if st.button(
             "eta_bonus": eta_bonus,
         },
         "params": params,
+        "dataset": uploaded_file.name.removesuffix(".json"),
     }
 
     try:
