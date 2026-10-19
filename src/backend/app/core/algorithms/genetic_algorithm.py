@@ -72,7 +72,7 @@ def mutate(problem, state, rng, max_attempts=10):
 
     return state.copy()
 
-# ambil z dari pilihan pertama (paling kecil) dari sebuah paket
+# ambil z dari pilihan pertama dari sebuah paket
 def first_option_z(candidate):
     package_id, options = candidate
     first_placement = options[0]
