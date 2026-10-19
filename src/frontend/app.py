@@ -60,13 +60,10 @@ st.markdown(
 
 def oriented_dimensions(package, orientation):
     dims = package["dimensions"]
-    result = { "x": 0, "y": 0, "z": 0 }
-    result[orientation["w"]] = dims["w"]
-    result[orientation["l"]] = dims["l"]
-    result[orientation["h"]] = dims["h"]
+    axes = { "x": dims["w"], "y": dims["l"], "z": dims["h"] }
 
     return (
-        result["x"], result["y"], result["z"],
+        axes[orientation["w"]], axes[orientation["l"]], axes[orientation["h"]],
     )
 
 def add_cuboid(fig, x, y, z, w, l, h, name, hover_text, ):
@@ -645,6 +642,40 @@ if "result" in st.session_state:
                 0,
             ),
         )
+
+        probabilities = metrics.get(
+            "acceptance_probability_history",
+            [],
+        )
+        points = [
+            (iteration, probability)
+            for iteration, probability in enumerate(probabilities, start=1)
+            if probability is not None
+        ]
+        if points:
+            probability_fig = go.Figure(
+                go.Scatter(
+                    x=[point[0] for point in points],
+                    y=[point[1] for point in points],
+                    mode="markers",
+                    marker={"size": 4},
+                    name="e^(ΔE/T)",
+                )
+            )
+            probability_fig.update_layout(
+                xaxis_title="Iteration",
+                yaxis_title="e^(ΔE/T)",
+                margin={
+                    "l": 20,
+                    "r": 20,
+                    "t": 20,
+                    "b": 20,
+                },
+            )
+            st.plotly_chart(
+                probability_fig,
+                use_container_width=True,
+            )
 
     st.subheader("Final Placement")
     final_state = result.get(

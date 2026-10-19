@@ -22,7 +22,7 @@ class RunRequest(BaseModel):
 # <dataset>_<mode>_<param ringkas>_seed<n>.json
 # contoh: medium-2trucks_eta300_pop50_it100_seed1.json
 SHORT_PARAMS = {
-    "simulated_annealing": ("sa", (("initial_temperature", "t"), ("cooling_rate", "cr"), ("max_iterations", "it"))),
+    "simulated_annealing": ("", (("initial_temperature", "t"), ("cooling_rate", "cr"), ("max_iterations", "it"))),
     "hill_climbing": ("hc", (("max_iterations", "it"), ("max_sideways_moves", "sw"), ("max_restarts", "rs"), ("max_iterations_per_restart", "it"))),
     "genetic_algorithm": ("", (("population_size", "pop"), ("max_iterations", "it"))),
 }

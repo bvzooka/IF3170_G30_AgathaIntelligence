@@ -39,6 +39,7 @@ def search(problem: Problem, initial: State, *, seed: int | None = None, objecti
     current_score_history = [current_score]
     best_score_history = [best_score]
     temperature_history = [temperature]
+    acceptance_probability_history = []
 
     accepted_better = 0
     accepted_equal = 0
@@ -51,6 +52,8 @@ def search(problem: Problem, initial: State, *, seed: int | None = None, objecti
     iterations = 0
 
     while(iterations < max_iteration and temperature > min_temp):
+        # e^(delta/T) hanya dihitung untuk langkah yang lebih buruk, selain itu None
+        move_probability = None
         # generate 1 random valid neighbor
         candidate_state = random_neighbor(problem, current_state, rng, max_attempt=max_neighbor_attempts)
         if candidate_state is None:
@@ -68,6 +71,7 @@ def search(problem: Problem, initial: State, *, seed: int | None = None, objecti
                 accepted_equal +=1
             else:
                 acceptance_probability = (math.exp(delta / temperature))
+                move_probability = acceptance_probability
                 random_value = rng.random()
                 if (random_value < acceptance_probability):
                     accept = True
@@ -99,6 +103,7 @@ def search(problem: Problem, initial: State, *, seed: int | None = None, objecti
         current_score_history.append(current_score)
         best_score_history.append(best_score)
         temperature_history.append(temperature)
+        acceptance_probability_history.append(move_probability)
 
     total_accepted = (accepted_better + accepted_equal + accepted_worse)
     acceptance_rate = (total_accepted / iterations if iterations > 0 else 0.0)
@@ -118,6 +123,7 @@ def search(problem: Problem, initial: State, *, seed: int | None = None, objecti
                 "stuck_threshold": stuck_threshold,
                 "current_score_history": current_score_history,
                 "temperature_history": temperature_history,
+                "acceptance_probability_history": acceptance_probability_history,
             }
     return SearchResult(final_state=best_state, score_history=best_score_history, iterations=iterations, metrics=metrics)
 
