@@ -1,0 +1,133 @@
+{
+  "truck": {
+    "id": "T1",
+    "dimensions": {
+      "w": 4,
+      "l": 4,
+      "h": 3
+    },
+    "max_capacity": 30
+  },
+  "packages": [
+    {
+      "id": "P01",
+      "dimensions": {
+        "w": 2,
+        "l": 3,
+        "h": 2
+      },
+      "value": 180,
+      "weight": 21,
+      "is_fragile": false,
+      "eta": 2
+    },
+    {
+      "id": "P02",
+      "dimensions": {
+        "w": 3,
+        "l": 2,
+        "h": 1
+      },
+      "value": 54,
+      "weight": 10,
+      "is_fragile": true,
+      "eta": 5
+    },
+    {
+      "id": "P03",
+      "dimensions": {
+        "w": 3,
+        "l": 3,
+        "h": 1
+      },
+      "value": 153,
+      "weight": 22,
+      "is_fragile": false,
+      "eta": 6
+    },
+    {
+      "id": "P04",
+      "dimensions": {
+        "w": 3,
+        "l": 3,
+        "h": 1
+      },
+      "value": 153,
+      "weight": 9,
+      "is_fragile": false,
+      "eta": 1
+    },
+    {
+      "id": "P05",
+      "dimensions": {
+        "w": 1,
+        "l": 1,
+        "h": 1
+      },
+      "value": 17,
+      "weight": 1,
+      "is_fragile": false,
+      "eta": 4
+    },
+    {
+      "id": "P06",
+      "dimensions": {
+        "w": 3,
+        "l": 1,
+        "h": 1
+      },
+      "value": 54,
+      "weight": 4,
+      "is_fragile": true,
+      "eta": 1
+    },
+    {
+      "id": "P07",
+      "dimensions": {
+        "w": 2,
+        "l": 3,
+        "h": 2
+      },
+      "value": 168,
+      "weight": 30,
+      "is_fragile": false,
+      "eta": 7
+    },
+    {
+      "id": "P08",
+      "dimensions": {
+        "w": 1,
+        "l": 3,
+        "h": 2
+      },
+      "value": 78,
+      "weight": 13,
+      "is_fragile": false,
+      "eta": 1
+    },
+    {
+      "id": "P09",
+      "dimensions": {
+        "w": 1,
+        "l": 3,
+        "h": 1
+      },
+      "value": 42,
+      "weight": 3,
+      "is_fragile": false,
+      "eta": 1
+    },
+    {
+      "id": "P10",
+      "dimensions": {
+        "w": 1,
+        "l": 3,
+        "h": 1
+      },
+      "value": 33,
+      "weight": 4,
+      "is_fragile": false,
+      "eta": 4
+    }
+  ]
+}
