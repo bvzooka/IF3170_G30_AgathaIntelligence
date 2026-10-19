@@ -1,4 +1,4 @@
-from datetime import datetime
+import re
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
@@ -16,6 +16,28 @@ class RunRequest(BaseModel):
     seed: int | None = None
     params: dict = Field(default_factory=dict)
     objective: dict = Field(default_factory=dict)
+    dataset: str = "dataset"
+
+
+# <dataset>_<mode>_<param ringkas>_seed<n>.json
+# contoh: medium-2trucks_eta300_pop50_it100_seed1.json
+SHORT_PARAMS = {
+    "simulated_annealing": ("sa", (("initial_temperature", "t"), ("cooling_rate", "cr"), ("max_iterations", "it"))),
+    "hill_climbing": ("hc", (("max_iterations", "it"), ("max_sideways_moves", "sw"), ("max_restarts", "rs"), ("max_iterations_per_restart", "it"))),
+    "genetic_algorithm": ("", (("population_size", "pop"), ("max_iterations", "it"))),
+}
+
+
+def output_filename(request: RunRequest) -> str:
+    objective = request.objective
+    mode = "value" if objective.get("mode", "value") == "value" else f"eta{objective.get('eta_bonus', 0):g}"
+    prefix, keys = SHORT_PARAMS[request.algorithm]
+    parts = [prefix] if prefix else []
+    if request.algorithm == "hill_climbing":
+        parts[0] += "-" + request.params.get("variant", "steepest").replace("random_restart", "restart")
+    parts += [f"{short}{request.params[key]:g}" for key, short in keys if key in request.params]
+    dataset = re.sub(r"[^\w.-]", "-", request.dataset)
+    return f"{dataset}_{mode}_{'_'.join(parts)}_seed{request.seed}.json"
 
 
 @router.get("/health")
@@ -28,7 +50,7 @@ def health() -> dict:
 def create_run(request: RunRequest) -> dict:
     try:
         result = run(parse_problem(request.problem), request.algorithm, seed=request.seed, params=request.params, objective=ObjectiveConfig(**request.objective))
-        write_json(OUTPUT_DIR / f"{request.algorithm}_seed{request.seed}_{datetime.now():%Y%m%d_%H%M%S}.json", result)
+        write_json(OUTPUT_DIR / output_filename(request), result)
         return result
     except NotImplementedError as exc: raise HTTPException(status_code=501, detail=str(exc)) from exc
     except (ValueError, TypeError, KeyError) as exc: raise HTTPException(status_code=400, detail=str(exc)) from exc
