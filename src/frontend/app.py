@@ -137,8 +137,12 @@ def add_truck(fig, w, l, h):
             )
         )
 
-def truck_figure(problem, state, title):
-    truck = problem["truck"]
+def get_trucks(problem):
+    if "trucks" in problem:
+        return problem["trucks"]
+    return [{"id": "truck-1", **problem["truck"]}]
+
+def truck_figure(problem, truck, state, title):
     dims = truck["dimensions"]
 
     truck_w = dims["w"]
@@ -160,7 +164,7 @@ def truck_figure(problem, state, title):
     )
 
     for package_id, placement in placements.items():
-        if placement is None:
+        if placement is None or placement["truck_id"] != truck["id"]:
             continue
 
         package = package_lookup[package_id]
@@ -405,14 +409,43 @@ if algorithm == "simulated_annealing":
         )
 
 elif algorithm == "hill_climbing":
-    params["max_iterations"] = (
-        st.number_input(
+    params["variant"] = st.selectbox(
+        "Hill Climbing Variant",
+        ["steepest", "sideways", "stochastic", "random_restart"],
+        format_func=lambda x: {
+            "steepest": "Steepest Ascent",
+            "sideways": "Sideways Moves",
+            "stochastic": "Stochastic",
+            "random_restart": "Random Restart",
+        }[x],
+    )
+    if params["variant"] == "random_restart":
+        params["max_restarts"] = st.number_input(
+            "Maximum Restarts",
+            value=10,
+            min_value=0,
+            step=1,
+        )
+        params["max_iterations_per_restart"] = st.number_input(
+            "Maximum Iterations per Restart",
+            value=1000,
+            min_value=1,
+            step=100,
+        )
+    else:
+        params["max_iterations"] = st.number_input(
             "Maximum Iterations",
             value=2000,
             min_value=1,
             step=100,
         )
-    )
+        if params["variant"] == "sideways":
+            params["max_sideways_moves"] = st.number_input(
+                "Maximum Sideways Moves",
+                value=100,
+                min_value=0,
+                step=1,
+            )
 
 elif algorithm == "genetic_algorithm":
     col1, col2 = st.columns(2)
@@ -546,27 +579,31 @@ if "result" in st.session_state:
         initial_state = result.get("initial_state")
         if initial_state:
 
-            st.plotly_chart(
-                truck_figure(
-                    problem,
-                    initial_state,
-                    "Initial State",
-                ),
-                use_container_width=True,
-            )
+            for truck in get_trucks(problem):
+                st.plotly_chart(
+                    truck_figure(
+                        problem,
+                        truck,
+                        initial_state,
+                        f"Initial State - {truck['id']}",
+                    ),
+                    use_container_width=True,
+                )
 
     with final_tab:
         final_state = result.get("final_state")
 
         if final_state:
-            st.plotly_chart(
-                truck_figure(
-                    problem,
-                    final_state,
-                    "Final State",
-                ),
-                use_container_width=True,
-            )
+            for truck in get_trucks(problem):
+                st.plotly_chart(
+                    truck_figure(
+                        problem,
+                        truck,
+                        final_state,
+                        f"Final State - {truck['id']}",
+                    ),
+                    use_container_width=True,
+                )
 
     st.subheader("Perkembangan Objective")
     st.plotly_chart(
@@ -627,6 +664,7 @@ if "result" in st.session_state:
                 {
                     "Package": package_id,
                     "Status": "Outside",
+                    "Truck": "-",
                     "Position": "-",
                     "Orientation": "-",
                 }
@@ -642,6 +680,9 @@ if "result" in st.session_state:
 
                     "Status":
                         "Inside",
+
+                    "Truck":
+                        placement["truck_id"],
 
                     "Position":
                         (

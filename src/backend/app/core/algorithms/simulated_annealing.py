@@ -6,12 +6,15 @@ from ..results import register
 from ..neighbors import random_neighbor
 
 def search(problem: Problem, initial: State, *, seed: int | None = None, objective: ObjectiveConfig = ObjectiveConfig(), **params) -> SearchResult:
-    initial_temp = float(params.get("initial_temp", 1000.0, ))
-    cooling_rate = float(params.get("cooling_rate", 0.995, ))
-    min_temp = float(params.get("min_temp", 0.01, ))
-    max_iteration = int(params.get("max_iteration", 1000, ))
-    max_neighbor_attempts = int(params.get("max_neighbor_attempts", 100, ))
-    stuck_threshold = int(params.get("stuck_threshold", 50, ))
+    params = dict(params)
+    initial_temp = float(params.pop("initial_temperature", 1000.0, ))
+    cooling_rate = float(params.pop("cooling_rate", 0.995, ))
+    min_temp = float(params.pop("min_temperature", 0.01, ))
+    max_iteration = int(params.pop("max_iterations", 1000, ))
+    max_neighbor_attempts = int(params.pop("max_neighbor_attempts", 100, ))
+    stuck_threshold = int(params.pop("stuck_threshold", 50, ))
+    if params:
+        raise ValueError(f"parameter simulated annealing tidak dikenal: {', '.join(params)}")
 
     if initial_temp <= 0:
         raise ValueError("initial_temp harus lebih dari 0")
