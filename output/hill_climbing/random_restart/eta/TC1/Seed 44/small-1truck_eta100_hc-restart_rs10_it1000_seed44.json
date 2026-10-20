@@ -1,0 +1,283 @@
+{
+  "algorithm": "hill_climbing",
+  "seed": 44,
+  "parameters": {
+    "variant": "random_restart",
+    "max_restarts": 10,
+    "max_iterations_per_restart": 1000
+  },
+  "objective": {
+    "mode": "eta_weighted",
+    "eta_bonus": 100.0
+  },
+  "initial_state": {
+    "placements": {
+      "P01": null,
+      "P02": null,
+      "P03": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P04": null,
+      "P05": null,
+      "P06": null,
+      "P07": null,
+      "P08": null,
+      "P09": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "x",
+          "h": "y"
+        }
+      },
+      "P10": null
+    }
+  },
+  "initial_score": 4480.714285714286,
+  "final_state": {
+    "placements": {
+      "P01": null,
+      "P02": null,
+      "P03": null,
+      "P04": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P05": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 3,
+          "z": 0
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P06": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P07": null,
+      "P08": {
+        "truck_id": "T1",
+        "position": {
+          "x": 2,
+          "y": 1,
+          "z": 1
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P09": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "x",
+          "h": "y"
+        }
+      },
+      "P10": null
+    }
+  },
+  "final_score": 17034.0,
+  "occupancy": {
+    "T1": {
+      "0": [
+        [
+          "P06",
+          "P06",
+          "P06",
+          null
+        ],
+        [
+          "P09",
+          "P04",
+          "P04",
+          "P04"
+        ],
+        [
+          null,
+          "P04",
+          "P04",
+          "P04"
+        ],
+        [
+          "P05",
+          "P04",
+          "P04",
+          "P04"
+        ]
+      ],
+      "1": [
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "P09",
+          null,
+          "P08",
+          null
+        ],
+        [
+          null,
+          null,
+          "P08",
+          null
+        ],
+        [
+          null,
+          null,
+          "P08",
+          null
+        ]
+      ],
+      "2": [
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "P09",
+          null,
+          "P08",
+          null
+        ],
+        [
+          null,
+          null,
+          "P08",
+          null
+        ],
+        [
+          null,
+          null,
+          "P08",
+          null
+        ]
+      ]
+    }
+  },
+  "loaded": {
+    "T1": [
+      "P04",
+      "P05",
+      "P06",
+      "P08",
+      "P09"
+    ]
+  },
+  "outside": [
+    "P01",
+    "P02",
+    "P03",
+    "P07",
+    "P10"
+  ],
+  "weights": {
+    "T1": 30.0
+  },
+  "score_history": [
+    4480.714285714286,
+    9945.0,
+    13923.0,
+    16677.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0,
+    17034.0
+  ],
+  "average_history": null,
+  "iterations": 29,
+  "duration_seconds": 0.37384339998243377,
+  "metrics": {
+    "variant": "random_restart",
+    "restart_count": 10,
+    "iterations_per_restart": [
+      4,
+      4,
+      1,
+      3,
+      0,
+      3,
+      0,
+      1,
+      1,
+      0,
+      2
+    ],
+    "max_restarts": 10,
+    "neighbors_evaluated": 1343,
+    "history_type": "best_so_far"
+  }
+}
