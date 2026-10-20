@@ -1,0 +1,250 @@
+{
+  "algorithm": "hill_climbing",
+  "seed": 42,
+  "parameters": {
+    "variant": "steepest",
+    "max_iterations": 1000
+  },
+  "objective": {
+    "mode": "value",
+    "eta_bonus": 0.0
+  },
+  "initial_state": {
+    "placements": {
+      "P01": null,
+      "P02": {
+        "truck_id": "T1",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "z",
+          "h": "x"
+        }
+      },
+      "P03": null,
+      "P04": null,
+      "P05": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 3,
+          "z": 0
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P06": null,
+      "P07": null,
+      "P08": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P09": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 2
+        },
+        "orientation": {
+          "w": "y",
+          "l": "z",
+          "h": "x"
+        }
+      },
+      "P10": null
+    }
+  },
+  "initial_score": 191,
+  "final_state": {
+    "placements": {
+      "P01": null,
+      "P02": {
+        "truck_id": "T1",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "z",
+          "h": "x"
+        }
+      },
+      "P03": null,
+      "P04": null,
+      "P05": null,
+      "P06": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 3,
+          "z": 0
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P07": null,
+      "P08": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P09": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 2
+        },
+        "orientation": {
+          "w": "y",
+          "l": "z",
+          "h": "x"
+        }
+      },
+      "P10": null
+    }
+  },
+  "final_score": 228,
+  "occupancy": {
+    "T1": {
+      "0": [
+        [
+          null,
+          "P08",
+          "P02",
+          "P02"
+        ],
+        [
+          null,
+          "P08",
+          null,
+          null
+        ],
+        [
+          null,
+          "P08",
+          null,
+          null
+        ],
+        [
+          "P06",
+          "P06",
+          "P06",
+          null
+        ]
+      ],
+      "1": [
+        [
+          null,
+          "P08",
+          "P02",
+          "P02"
+        ],
+        [
+          null,
+          "P08",
+          null,
+          null
+        ],
+        [
+          null,
+          "P08",
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "2": [
+        [
+          null,
+          null,
+          "P02",
+          "P02"
+        ],
+        [
+          null,
+          "P09",
+          "P09",
+          "P09"
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "loaded": {
+    "T1": [
+      "P02",
+      "P06",
+      "P08",
+      "P09"
+    ]
+  },
+  "outside": [
+    "P01",
+    "P03",
+    "P04",
+    "P05",
+    "P07",
+    "P10"
+  ],
+  "weights": {
+    "T1": 30.0
+  },
+  "score_history": [
+    191,
+    228
+  ],
+  "average_history": null,
+  "iterations": 1,
+  "duration_seconds": 0.041244300024118274,
+  "metrics": {
+    "variant": "steepest",
+    "neighbors_evaluated": 54
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "algorithm": "hill_climbing",
+  "seed": 44,
+  "parameters": {
+    "variant": "sideways",
+    "max_iterations": 1000,
+    "max_sideways_moves": 100
+  },
+  "objective": {
+    "mode": "value",
+    "eta_bonus": 0.0
+  },
+  "initial_state": {
+    "placements": {
+      "P01": null,
+      "P02": null,
+      "P03": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P04": null,
+      "P05": null,
+      "P06": null,
+      "P07": null,
+      "P08": null,
+      "P09": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "x",
+          "h": "y"
+        }
+      },
+      "P10": null
+    }
+  },
+  "initial_score": 195,
+  "final_state": {
+    "placements": {
+      "P01": {
+        "truck_id": "T1",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "y",
+          "h": "x"
+        }
+      },
+      "P02": null,
+      "P03": null,
+      "P04": null,
+      "P05": {
+        "truck_id": "T1",
+        "position": {
+          "x": 3,
+          "y": 2,
+          "z": 2
+        },
+        "orientation": {
+          "w": "z",
+          "l": "x",
+          "h": "y"
+        }
+      },
+      "P06": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 3,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "y",
+          "h": "x"
+        }
+      },
+      "P07": null,
+      "P08": null,
+      "P09": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "y",
+          "h": "x"
+        }
+      },
+      "P10": null
+    }
+  },
+  "final_score": 293,
+  "occupancy": {
+    "T1": {
+      "0": [
+        [
+          null,
+          null,
+          "P01",
+          "P01"
+        ],
+        [
+          null,
+          "P09",
+          "P01",
+          "P01"
+        ],
+        [
+          null,
+          "P09",
+          "P01",
+          "P01"
+        ],
+        [
+          "P06",
+          "P09",
+          null,
+          null
+        ]
+      ],
+      "1": [
+        [
+          null,
+          null,
+          "P01",
+          "P01"
+        ],
+        [
+          null,
+          null,
+          "P01",
+          "P01"
+        ],
+        [
+          null,
+          null,
+          "P01",
+          "P01"
+        ],
+        [
+          "P06",
+          null,
+          null,
+          null
+        ]
+      ],
+      "2": [
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          "P05"
+        ],
+        [
+          "P06",
+          null,
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "loaded": {
+    "T1": [
+      "P01",
+      "P05",
+      "P06",
+      "P09"
+    ]
+  },
+  "outside": [
+    "P02",
+    "P03",
+    "P04",
+    "P07",
+    "P08",
+    "P10"
+  ],
+  "weights": {
+    "T1": 29.0
+  },
+  "score_history": [
+    195,
+    249,
+    266,
+    266,
+    266,
+    266,
+    266,
+    266,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293,
+    293
+  ],
+  "average_history": null,
+  "iterations": 108,
+  "duration_seconds": 2.3433634000248276,
+  "metrics": {
+    "variant": "sideways",
+    "sideways_moves": 105,
+    "max_sideways_moves": 100,
+    "neighbors_evaluated": 4017
+  }
+}

@@ -1,0 +1,403 @@
+{
+  "algorithm": "hill_climbing",
+  "seed": 43,
+  "parameters": {
+    "variant": "steepest",
+    "max_iterations": 1000
+  },
+  "objective": {
+    "mode": "value",
+    "eta_bonus": 0.0
+  },
+  "initial_state": {
+    "placements": {
+      "P01": {
+        "truck_id": "T2",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 1
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P02": null,
+      "P03": null,
+      "P04": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 2
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P05": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P06": null,
+      "P07": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "x",
+          "l": "z",
+          "h": "y"
+        }
+      },
+      "P08": null,
+      "P09": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 2,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P10": {
+        "truck_id": "T1",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P11": {
+        "truck_id": "T2",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "x",
+          "h": "y"
+        }
+      },
+      "P12": null,
+      "P13": null,
+      "P14": {
+        "truck_id": "T2",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "y",
+          "h": "x"
+        }
+      }
+    }
+  },
+  "initial_score": 541,
+  "final_state": {
+    "placements": {
+      "P01": {
+        "truck_id": "T2",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 1
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P02": null,
+      "P03": null,
+      "P04": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 2
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P05": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P06": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 2,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P07": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "x",
+          "l": "z",
+          "h": "y"
+        }
+      },
+      "P08": null,
+      "P09": null,
+      "P10": {
+        "truck_id": "T1",
+        "position": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P11": {
+        "truck_id": "T2",
+        "position": {
+          "x": 3,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "x",
+          "h": "y"
+        }
+      },
+      "P12": null,
+      "P13": null,
+      "P14": {
+        "truck_id": "T2",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "y",
+          "h": "x"
+        }
+      }
+    }
+  },
+  "final_score": 545,
+  "occupancy": {
+    "T1": {
+      "0": [
+        [
+          null,
+          "P05",
+          "P10",
+          null
+        ],
+        [
+          "P07",
+          "P07",
+          "P07",
+          "P07"
+        ],
+        [
+          "P06",
+          null,
+          null,
+          null
+        ],
+        [
+          "P06",
+          null,
+          null,
+          null
+        ]
+      ],
+      "1": [
+        [
+          null,
+          null,
+          "P10",
+          null
+        ],
+        [
+          "P07",
+          "P07",
+          "P07",
+          "P07"
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "2": [
+        [
+          "P04",
+          "P04",
+          "P04",
+          null
+        ],
+        [
+          "P04",
+          "P04",
+          "P04",
+          null
+        ],
+        [
+          "P04",
+          "P04",
+          "P04",
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ]
+      ]
+    },
+    "T2": {
+      "0": [
+        [
+          "P14",
+          "P14",
+          null,
+          "P11"
+        ],
+        [
+          "P14",
+          "P14",
+          null,
+          "P11"
+        ],
+        [
+          null,
+          null,
+          null,
+          "P11"
+        ]
+      ],
+      "1": [
+        [
+          "P14",
+          "P14",
+          "P01",
+          "P01"
+        ],
+        [
+          "P14",
+          "P14",
+          "P01",
+          "P01"
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "loaded": {
+    "T1": [
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P10"
+    ],
+    "T2": [
+      "P01",
+      "P11",
+      "P14"
+    ]
+  },
+  "outside": [
+    "P02",
+    "P03",
+    "P08",
+    "P09",
+    "P12",
+    "P13"
+  ],
+  "weights": {
+    "T1": 36.0,
+    "T2": 20.0
+  },
+  "score_history": [
+    541,
+    545
+  ],
+  "average_history": null,
+  "iterations": 1,
+  "duration_seconds": 0.15086110000265762,
+  "metrics": {
+    "variant": "steepest",
+    "neighbors_evaluated": 99
+  }
+}

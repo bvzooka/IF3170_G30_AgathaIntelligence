@@ -1,0 +1,227 @@
+{
+  "algorithm": "hill_climbing",
+  "seed": 44,
+  "parameters": {
+    "variant": "steepest",
+    "max_iterations": 1000
+  },
+  "objective": {
+    "mode": "value",
+    "eta_bonus": 0.0
+  },
+  "initial_state": {
+    "placements": {
+      "P01": null,
+      "P02": null,
+      "P03": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P04": null,
+      "P05": null,
+      "P06": null,
+      "P07": null,
+      "P08": null,
+      "P09": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "x",
+          "h": "y"
+        }
+      },
+      "P10": null
+    }
+  },
+  "initial_score": 195,
+  "final_state": {
+    "placements": {
+      "P01": null,
+      "P02": null,
+      "P03": {
+        "truck_id": "T1",
+        "position": {
+          "x": 1,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        }
+      },
+      "P04": null,
+      "P05": {
+        "truck_id": "T1",
+        "position": {
+          "x": 3,
+          "y": 1,
+          "z": 1
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P06": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 2,
+          "z": 1
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        }
+      },
+      "P07": null,
+      "P08": null,
+      "P09": {
+        "truck_id": "T1",
+        "position": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "orientation": {
+          "w": "z",
+          "l": "x",
+          "h": "y"
+        }
+      },
+      "P10": null
+    }
+  },
+  "final_score": 266,
+  "occupancy": {
+    "T1": {
+      "0": [
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "P09",
+          "P03",
+          "P03",
+          "P03"
+        ],
+        [
+          null,
+          "P03",
+          "P03",
+          "P03"
+        ],
+        [
+          null,
+          "P03",
+          "P03",
+          "P03"
+        ]
+      ],
+      "1": [
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "P09",
+          null,
+          null,
+          "P05"
+        ],
+        [
+          "P06",
+          "P06",
+          "P06",
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "2": [
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "P09",
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  "loaded": {
+    "T1": [
+      "P03",
+      "P05",
+      "P06",
+      "P09"
+    ]
+  },
+  "outside": [
+    "P01",
+    "P02",
+    "P04",
+    "P07",
+    "P08",
+    "P10"
+  ],
+  "weights": {
+    "T1": 30.0
+  },
+  "score_history": [
+    195,
+    249,
+    266
+  ],
+  "average_history": null,
+  "iterations": 2,
+  "duration_seconds": 0.06534979998832569,
+  "metrics": {
+    "variant": "steepest",
+    "neighbors_evaluated": 123
+  }
+}
